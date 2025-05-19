@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>🌿 Nhận diện bệnh lá cây chanh</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <!-- Dùng đường dẫn tĩnh thuần túy -->
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="/" class="logo">🌿 LemonHealthyCheck</a>
+      <!-- trỏ về index.html -->
+      <a href="index.html" class="logo">🌿 LemonHealthyCheck</a>
       <nav class="site-nav">
-        <a href="/">Trang chủ</a>
-        <a href="/history">Lịch sử</a>
-        <!-- <a href="#predict-section">Kiểm tra</a> -->
-        <!-- <a href="#result-section">Kết quả</a> -->
+        <a href="index.html">Trang chủ</a>
+        <a href="history.html">Lịch sử</a>
         <a href="https://www.facebook.com/b8723" target="_blank">Fanpage</a>
       </nav>
     </div>
@@ -65,6 +65,7 @@
     </section>
   </main>
 
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <!-- script.js nằm cùng cấp với index.html -->
+  <script src="script.js"></script>
 </body>
 </html>
