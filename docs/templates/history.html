@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lịch sử kiểm tra</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    table { width:100%; border-collapse: collapse; margin-top:1rem; }
+    th, td { padding:0.75rem; border:1px solid #e5e7eb; text-align:center; }
+    th { background:#f9fafb; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lịch sử kiểm tra</h1>
+    <p><a href="/">← Quay lại trang chính</a></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Thời gian (UTC)</th>
+          <th>Model</th>
+          <th>Kết quả</th>
+          <th>Độ tin cậy</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ts, model, label, conf in rows %}
+        <tr>
+          <td>{{ ts }}</td>
+          <td>{{ model }}</td>
+          <td>{{ label }}</td>
+          <td>{{ '%.2f%%' % (conf*100) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

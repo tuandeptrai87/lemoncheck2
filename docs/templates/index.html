@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🌿 Nhận diện bệnh lá cây chanh</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">🌿 LemonHealthyCheck</a>
+      <nav class="site-nav">
+        <a href="/">Trang chủ</a>
+        <a href="/history">Lịch sử</a>
+        <!-- <a href="#predict-section">Kiểm tra</a> -->
+        <!-- <a href="#result-section">Kết quả</a> -->
+        <a href="https://www.facebook.com/b8723" target="_blank">Fanpage</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Prediction zone -->
+    <section id="predict-section" class="box">
+      <h2>Kiểm tra bệnh trên lá cây chanh</h2>
+      <div class="controls">
+        <div id="dropZone" class="drop-zone">
+          Kéo/thả ảnh hoặc nhấp để chọn
+          <input type="file" id="fileInput" accept="image/*" />
+        </div>
+        <select id="modelSelect" class="select-model">
+          <option>VGG16</option>
+          <option>ResNet50</option>
+          <option>MobileNetV2</option>
+        </select>
+        <button id="predictBtn" class="btn">Kiểm tra</button>
+      </div>
+    </section>
+
+    <!-- Result zone -->
+    <section id="result-section" class="box grid">
+      <div class="result-image">
+        <img id="resImg" alt="Ảnh dự đoán" />
+      </div>
+      <div class="result-info">
+        <h3 id="resLabel"></h3>
+        <p id="resConf" class="confidence"></p>
+
+        <div class="detail">
+          <h4>Nguyên nhân</h4>
+          <p id="cause"></p>
+        </div>
+        <div class="detail">
+          <h4>Cách phòng bệnh</h4>
+          <p id="prevention"></p>
+        </div>
+
+        <label for="progressBar">Độ tin cậy:</label>
+        <progress id="progressBar" value="0" max="100"></progress>
+
+        <canvas id="chart"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
